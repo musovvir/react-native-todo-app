@@ -6,6 +6,7 @@ import  AppLoading  from 'expo-app-loading'
 import { Navbar } from "./src/components/Navbar";
 import { MainScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
+import { THEME } from "./src/theme";
 
 async function loadApllication() {
   await Font.loadAsync({
@@ -17,9 +18,7 @@ async function loadApllication() {
 export default function App() {
   const [isReady, setIsReady] = useState(false);
   const [todoId, setTodoId] = useState(null);
-  const [todos, setTodos] = useState([
-    // { id: "1", title: "Выучить React-Native" }
-  ]);
+  const [todos, setTodos] = useState([]);
 
   if(!isReady) {
     return <AppLoading
@@ -104,7 +103,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 30,
+    paddingHorizontal: THEME.PADDING_HORIZONTAL,
     paddingVertical: 20
   }
 });
